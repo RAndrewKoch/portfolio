@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8"/>
+    <link type="text/css" rel="stylesheet" th:href="@{/css/mainStyle.css}"/>
+    <script type="text/javascript" th:src="@{/js/mainScripts.js}"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Kavivanar&family=Libre+Barcode+128+Text&display=swap"
+          rel="stylesheet">
+    <title>
+        R. Andrew Koch
+    </title>
+</head>
+<body>
+<div class="centeringDiv" style="width:fit-content; font-size:10vw;" id="header">
+    <hr>
+    <div class="centeringText">
+        <h1>
+            R. Andrew Koch
+        </h1>
+        <h2>
+            A Portfolio
+        </h2>
+    </div>
+    <hr>
+</div>
+<!--todo:add contact info here-->
+<div style="width:100%; height:10ch; overflow:hidden; white-space:nowrap;">
+    <div class="hideOffLeft" id="firstSlider"
+         style="position:relative; text-align:center; ">Yesterday's
+        plan : Learn
+        something new
+    </div>
+    <div class="hideOffLeft" id="secondSlider" style="position:relative; text-align:center;"
+         th:text="'Plan for '+${date}+': Learn something new'"></div>
+    <div class="hideOffLeft" id="thirdSlider" style="position:relative; text-align:center;">Tomorrow's plan : Learn
+        something new
+    </div>
+</div>
+
+
+<!--Projects slideshowbox-->
+<div onmouseleave="hideProjectSlideshow()">
+    <h1 style="text-align:center" th:text="'Projects'" onmouseover="displayProjectSlideshow()"></h1>
+    <div class="pointer"
+         style="width:fit-content; margin-left:auto; margin-right:auto; text-align:center; height:0;"
+         id="projectSlideShow">
+        <div class="slideShowBoxProjects">
+            <div onclick="cycleSlidesProjects()">
+                <div class="mySlidesProjects fade pointer" style="display:none; overflow:auto; margin:auto;">
+                    <div class="topOfSlide">
+                        <img style=" overflow:auto;" th:src="@{/images/bbn.jpg}"/>
+                        <div>
+                            <div th:text="'Breakaway Cafe Restaurant Application'"></div>
+                            <div th:text="'Live production app with online ordering capability'"></div>
+                            <div>
+                                <span th:text="'Visit here: '"></span>
+                                <span>
+                                    <a class="link-style" th:text="'Breakaway Cafe'"
+                                       th:href="@{https://thebreakawaycafe.com/}"
+                                       target="_blank"></a>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mySlidesProjects fade pointer" style="display:none; overflow:auto; margin:auto;">
+                    <div class="topOfSlide">
+                        <img style="float:left; overflow:auto;" th:src="@{/images/RunshareLogo.jpg}"/>
+                        <div style="float:left;">
+                            <div th:text="'LiftOff Capstone Project'"></div>
+                            <div><a class="link-style" th:text="'Runshare'"
+                                    th:href="@{'http://runsharedeploylinux.azurewebsites.net/'}" target="_blank"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="width:fit-content; margin-left:auto; margin-right:auto; text-align:center;">
+                <span onclick="showSlideProjects(0)"
+                      class="fade selectorsProjects dot pointer"></span>
+                <span onclick="showSlideProjects(1)"
+                      class="fade selectorsProjects dot pointer"></span>
+            </div>
+        </div>
+    </div>
+</div>
+<!--End Projects Slideshow box-->
+
+<!--Start Languages, etx. Slideshow box-->
+<div onmouseleave="hideLanguagesSlideShow()">
+    <h1 style="text-align:center; margin-top:30px;" th:text="'Languages, Frameworks and other tools'"
+        onmouseover="displayLanguagesSlideShow()"></h1>
+    <div class="pointer" style="width:fit-content; margin-left:auto; margin-right:auto; text-align:center; height:0;"
+         id="languagesSlideShow">
+        <div class="slideShowBoxLanguages">
+            <div onclick="cycleSlidesLanguages()">
+                <div class="mySlidesLanguages fade pointer" style="display:none; overflow:auto;margin:auto;">
+                    <div class="topOfSlide">
+                        <img style="float:left; overflow:auto;" th:src="@{/images/javaLogo.png}"/>
+                        <div style="float:left;" th:text="'Java'"></div>
+                    </div>
+                </div>
+                <div class="mySlidesLanguages fade pointer" style="display:none; overflow:auto;margin:auto;">
+                    <div class="topOfSlide">
+                        <img style="float:left; overflow:auto;" th:src="@{/images/html.png}"/>
+                        <div style="float:left;" th:text="'HTML'"></div>
+                    </div>
+                </div>
+                <div class="mySlidesLanguages fade pointer" style="display:none; overflow:auto;margin:auto;">
+                    <div class="topOfSlide">
+                        <img style="float:left; overflow:auto;" th:src="@{/images/css.png}"/>
+                        <div style="float:left;" th:text="'CSS'"></div>
+                    </div>
+                </div>
+                <div class="mySlidesLanguages fade pointer" style="display:none; overflow:auto;margin:auto;">
+                    <div class="topOfSlide">
+                        <img style="float:left; overflow:auto;" th:src="@{/images/spring-boot-logo.png}"/>
+                        <div style="float:left;" th:text="'Spring Boot'"></div>
+                    </div>
+                </div>
+                <div class="mySlidesLanguages fade pointer" style="display:none; overflow:auto;margin:auto;">
+                    <div class="topOfSlide">
+                        <img style="float:left; overflow:auto;" th:src="@{/images/thymeleaf.png}"/>
+                        <div style="float:left;" th:text="'Thymeleaf'"></div>
+                    </div>
+                </div>
+                <div class="mySlidesLanguages fade pointer" style="display:none; overflow:auto;margin:auto;">
+                    <div class="topOfSlide">
+                        <img style="float:left; overflow:auto;" th:src="@{/images/mysqlworkbench-logo.png}"/>
+                        <div style="float:left;" th:text="'MySQL'"></div>
+                    </div>
+                </div>
+                <div class="mySlidesLanguages fade pointer" style="display:none; overflow:auto;margin:auto;">
+                    <div class="topOfSlide">
+                        <img style="float:left; overflow:auto;" th:src="@{/images/github-logo.png}"/>
+                        <div style="float:left;">
+                            <div th:text="'Github'"></div>
+                            <div><span>Visit My Git: </span><span><a class="link-style"
+                                                                     th:href="@{'https://github.com/RAndrewKoch'}"
+                                                                     target="_blank" th:text="'RAndrewKoch'"></a></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="width:fit-content; margin-left:auto; margin-right:auto; text-align:center;">
+                <span onclick="showSlideLanguages(0)" class="fade selectorsLanguages dot pointer"></span>
+                <span onclick="showSlideLanguages(1)" class="fade selectorsLanguages dot pointer"></span>
+                <span onclick="showSlideLanguages(2)" class="fade selectorsLanguages dot pointer"></span>
+                <span onclick="showSlideLanguages(3)" class="fade selectorsLanguages dot pointer"></span>
+                <span onclick="showSlideLanguages(4)" class="fade selectorsLanguages dot pointer"></span>
+                <span onclick="showSlideLanguages(5)" class="fade selectorsLanguages dot pointer"></span>
+                <span onclick="showSlideLanguages(6)" class="fade selectorsLanguages dot pointer"></span>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+<!--End Languages slideshow box -->
+
+<!--Start Education Slideshow box-->
+<div onmouseleave="hideEducationSlideShow()">
+    <h1 style="text-align:center; margin-top:30px;" th:text="'Education'"
+        onmouseover="displayEducationSlideShow()"></h1>
+    <div class="pointer" style="width:fit-content; margin-left:auto; margin-right:auto; text-align:center; height:0px;"
+         id="educationSlideShow">
+        <div class="slideShowBoxEducation">
+            <div onclick="cycleSlidesEducation()">
+                <div class="mySlidesEducation fade pointer" style="display:none; overflow:auto;margin:auto;">
+                    <div class="topOfSlide">
+                        <img style="float:left; overflow:auto;" th:src="@{/images/launchcode.jpg}"/>
+                        <div style="float:left;" th:text="'2020 LiftOff graduate'"></div>
+                    </div>
+                </div>
+                <div class="mySlidesEducation fade pointer" style="display:none; overflow:auto;margin:auto;">
+                    <div class="topOfSlide">
+                        <img style="float:left; overflow:auto;" th:src="@{/images/launchcode.jpg}"/>
+                        <div style="float:left;" th:text="'2019 LC101 graduate'"></div>
+                    </div>
+                </div>
+                <div class="mySlidesEducation fade pointer" style="display:none; overflow:auto;margin:auto;">
+                    <div class="topOfSlide">
+                        <img style="float:left; overflow:auto;" th:src="@{/images/missouristatelogo.png}"/>
+                        <div style="float:left;">
+                            <div th:text="'1993-1998 Missouri State University'"></div>
+                            <div th:text="'Bachelor of Fine Arts Program'"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div style="width:fit-content; margin-left:auto; margin-right:auto; text-align:center;">
+                <span onclick="showSlideEducation(0)" class="fade selectorsEducation dot pointer"></span>
+                <span onclick="showSlideEducation(1)" class="fade selectorsEducation dot pointer"></span>
+                <span onclick="showSlideEducation(2)" class="fade selectorsEducation dot pointer"></span>
+            </div>
+        </div>
+    </div>
+</div>
+<!--End education slideshow box-->
+
+</body>
+</html>
